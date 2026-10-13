@@ -27,8 +27,10 @@ jobs:
       - name: Siapkan Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Beri izin Gradle
-        run: chmod +x gradlew || true
+      - name: Siapkan Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
 
       - name: Build APK
         run: gradle --no-daemon assembleDebug
