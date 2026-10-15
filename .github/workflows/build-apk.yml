@@ -24,8 +24,12 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Siapkan Android SDK
+            - name: Siapkan Android SDK
         uses: android-actions/setup-android@v3
+
+      - name: Pasang Android SDK Platform
+        run: |
+          sdkmanager --sdk_root="$ANDROID_HOME" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Siapkan Gradle
         uses: gradle/actions/setup-gradle@v4
